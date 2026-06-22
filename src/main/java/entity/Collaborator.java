@@ -79,7 +79,7 @@ public class Collaborator {
         return idusercreate;
     }
     
-    public void setIdUserCreate(){
+    public void setIdUserCreate(int idusercreate){
         this.idusercreate = idusercreate;
     }
     

@@ -54,7 +54,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ZoneBox" pref="110" max="32767" attributes="0"/>
+                              <Component id="ZoneBox" pref="124" max="32767" attributes="0"/>
                               <Component id="CategoryBox" alignment="0" max="32767" attributes="0"/>
                               <Component id="StateBox" alignment="0" max="32767" attributes="0"/>
                               <Component id="AddressText" alignment="0" max="32767" attributes="0"/>
@@ -72,39 +72,35 @@
                           </Group>
                       </Group>
                   </Group>
+                  <EmptySpace pref="7" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="www" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="Description" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="Iduser" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="wwwText" alignment="0" pref="108" max="32767" attributes="0"/>
+                              <Component id="DescriptionText" alignment="0" pref="108" max="32767" attributes="0"/>
+                              <Component id="IduserText" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="Email" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="EmailText" min="-2" pref="108" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="Link" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="LinkText" min="-2" pref="108" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="Phone" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="PhoneText" min="-2" pref="108" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="Description" min="-2" max="-2" attributes="0"/>
-                              <Component id="www" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="Link" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="wwwText" max="32767" attributes="0"/>
-                              <Component id="DescripionText" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="LinkText" min="-2" pref="108" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="Phone" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="PhoneText" min="-2" pref="108" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -144,15 +140,17 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DescripionText" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DescriptionText" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Description" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="State" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="StateBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Iduser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IduserText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="Boton" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -175,7 +173,7 @@
                               <Component id="Category" min="-2" max="-2" attributes="0"/>
                               <Component id="CategoryBox" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -209,9 +207,9 @@
             <Property name="text" type="java.lang.String" value="Address:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DescripionText">
+        <Component class="javax.swing.JTextField" name="DescriptionText">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DescripionTextActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DescriptionTextActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Phone">
@@ -341,6 +339,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddressTextActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Iduser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Id_user:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="IduserText">
         </Component>
       </SubComponents>
     </Container>

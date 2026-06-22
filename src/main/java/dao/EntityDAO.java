@@ -12,15 +12,19 @@ import java.util.List;
 public class EntityDAO {
 
 
-    public void crearEntityDAO(Entity ent, int idUser) {
+
+    public int crearEntityDAO(Entity ent, int idUser) {
         String sql = """
             INSERT INTO entity 
             (name, id_dimension, id_zone, id_address, id_state, description, phone, email, www, link, id_user_create, id_user_update, date_create, date_update) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW());
             """;
+        
+        int idGenerado = -1;
+
 
         try (Connection conn = Conexion.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setString(1, ent.getName());
             ps.setInt(2, ent.getIdDimension());
@@ -36,12 +40,21 @@ public class EntityDAO {
             ps.setInt(12, idUser);
 
             ps.executeUpdate();
-            System.out.println("¡Entidad creada con éxito!");
+            
+
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) {
+                    idGenerado = rs.getInt(1);
+                }
+            }
+            System.out.println("¡Entidad creada con éxito! ID Generado: " + idGenerado);
 
         } catch (SQLException e) {
             System.out.println("Error al intentar crear la entidad: " + e.getMessage());
             e.printStackTrace();
         }
+        
+        return idGenerado; // Retornamos el ID para usarlo en la siguiente inserción
     }
 
 
@@ -53,20 +66,20 @@ public class EntityDAO {
             """;
 
         try (Connection conn = Conexion.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+            PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, ent.getName());
-            ps.setInt(2, ent.getIdDimension());
-            ps.setInt(3, ent.getIdZone());
-            ps.setInt(4, ent.getIdAddress());
-            ps.setInt(5, ent.getIdState());
-            ps.setString(6, ent.getDescription());
-            ps.setString(7, ent.getPhone());
-            ps.setString(8, ent.getEmail());
-            ps.setString(9, ent.getWww());
-            ps.setString(10, ent.getLink());
-            ps.setInt(11, idUserUpdate);
-            ps.setInt(12, idUserUpdate);
+           ps.setString(1, ent.getName());
+           ps.setInt(2, ent.getIdDimension());
+           ps.setInt(3, ent.getIdZone());
+           ps.setInt(4, ent.getIdAddress());
+           ps.setInt(5, ent.getIdState());
+           ps.setString(6, ent.getDescription());
+           ps.setString(7, ent.getPhone());
+           ps.setString(8, ent.getEmail());
+           ps.setString(9, ent.getWww());
+           ps.setString(10, ent.getLink());
+           ps.setInt(11, idUserUpdate);
+           ps.setInt(12, ent.getIdEntity()); // <-- ¡IMPORTANTE! Asegúrate de que aquí diga ent.getIdEntity()
 
             ps.executeUpdate();
             System.out.println("¡Entidad modificada con éxito!");
@@ -76,7 +89,6 @@ public class EntityDAO {
             e.printStackTrace();
         }
     }
-
 
     public void borrarEntityDAO(int idEntity) {
         String sql = """
@@ -245,4 +257,37 @@ public class EntityDAO {
             System.out.println("¡Link de la entidad actualizado!");
         } catch (SQLException e) { e.printStackTrace(); }
     }
+    
+    public Entity buscarPorId(int idEntity) {
+    String sql = "SELECT * FROM entity WHERE id_entity = ?";
+    Entity ent = null;
+
+    try (Connection conn = Conexion.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        
+        ps.setInt(1, idEntity);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                ent = new Entity();
+                ent.setIdEntity(rs.getInt("id_entity"));
+                ent.setName(rs.getString("name"));
+                ent.setIdDimension(rs.getInt("id_dimension"));
+                ent.setIdZone(rs.getInt("id_zone"));
+                ent.setIdAddress(rs.getInt("id_address"));
+                ent.setIdState(rs.getInt("id_state"));
+                ent.setDescription(rs.getString("description"));
+                ent.setPhone(rs.getString("phone"));
+                ent.setEmail(rs.getString("email"));
+                ent.setWww(rs.getString("www"));
+                ent.setLink(rs.getString("link")); 
+            }
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al buscar la entidad por ID: " + e.getMessage());
+        e.printStackTrace();
+    }
+    return ent; // Si no lo encuentra, devolverá null
+    }
 }
+    
+

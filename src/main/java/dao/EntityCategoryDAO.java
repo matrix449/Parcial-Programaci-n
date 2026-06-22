@@ -77,6 +77,26 @@ public class EntityCategoryDAO {
             e.printStackTrace();
         }
     }
+    
+        public void borrarEntityCategory2(int idEntity) {
+        String sql = """
+            DELETE FROM entity_category WHERE id_entity = ?;
+            """;
+
+        try (Connection conn = Conexion.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, idEntity);
+
+            ps.executeUpdate();
+            System.out.println("¡Categoría de entidad borrada con éxito!");
+
+        } catch (SQLException e) {
+            System.out.println("Error al intentar borrar la categoría de entidad: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
 
     public List<EntityCategory> listar() {
         String sql = "SELECT * FROM entity_category";

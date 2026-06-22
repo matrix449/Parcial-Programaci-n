@@ -4,20 +4,25 @@
  */
 package Interface;
 
-/**
- *
- * @author chaco
- */
+
 public class CreateEntity extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateEntity.class.getName());
 
-    /**
-     * Creates new form NewJDialog
-     */
-    public CreateEntity(java.awt.Frame parent, boolean modal) {
+    // Variable para almacenar de forma interna el ID del usuario recibido
+    private int idUsuarioLogueado;
+
+    public CreateEntity(java.awt.Frame parent, boolean modal, int idUsuarioActivo) {
+        
         super(parent, modal);
+        
+        this.idUsuarioLogueado = idUsuarioActivo;
+        
         initComponents();
+        
+        IduserText.setText(String.valueOf(idUsuarioActivo));
+
+        
         String[] categorias = {
             "Bazar y Artículos de Limpieza Profesional", "Calzados", "Climatización", "Educación", 
             "Electricidad", "Estética, Peluquerías y Barberías", "Ferreterías", "Gastronomía", 
@@ -67,7 +72,7 @@ public class CreateEntity extends javax.swing.JDialog {
         Dimesion = new javax.swing.JLabel();
         Zone = new javax.swing.JLabel();
         Address = new javax.swing.JLabel();
-        DescripionText = new javax.swing.JTextField();
+        DescriptionText = new javax.swing.JTextField();
         Phone = new javax.swing.JLabel();
         Description = new javax.swing.JLabel();
         PhoneText = new javax.swing.JTextField();
@@ -85,6 +90,8 @@ public class CreateEntity extends javax.swing.JDialog {
         CategoryBox = new javax.swing.JComboBox<>();
         StateBox = new javax.swing.JComboBox<>();
         AddressText = new javax.swing.JTextField();
+        Iduser = new javax.swing.JLabel();
+        IduserText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -98,7 +105,7 @@ public class CreateEntity extends javax.swing.JDialog {
 
         Address.setText("Address:");
 
-        DescripionText.addActionListener(this::DescripionTextActionPerformed);
+        DescriptionText.addActionListener(this::DescriptionTextActionPerformed);
 
         Phone.setText("Phone:");
 
@@ -135,6 +142,8 @@ public class CreateEntity extends javax.swing.JDialog {
 
         AddressText.addActionListener(this::AddressTextActionPerformed);
 
+        Iduser.setText("Id_user:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -150,7 +159,7 @@ public class CreateEntity extends javax.swing.JDialog {
                             .addComponent(Category))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ZoneBox, 0, 110, Short.MAX_VALUE)
+                            .addComponent(ZoneBox, 0, 124, Short.MAX_VALUE)
                             .addComponent(CategoryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(StateBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AddressText)))
@@ -162,32 +171,30 @@ public class CreateEntity extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(NameText)
                             .addComponent(DimesionBox, 0, 108, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(www, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Description, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Iduser, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(wwwText, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(DescriptionText, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(IduserText)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Email)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Link)
-                                .addGap(18, 18, 18)
-                                .addComponent(LinkText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Phone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Description)
-                            .addComponent(www))
+                        .addComponent(Link)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(wwwText)
-                            .addComponent(DescripionText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(LinkText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Phone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -218,13 +225,15 @@ public class CreateEntity extends javax.swing.JDialog {
                             .addComponent(wwwText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DescripionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DescriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Description))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(State)
-                            .addComponent(StateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                            .addComponent(StateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Iduser)
+                            .addComponent(IduserText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
                         .addComponent(Boton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -242,7 +251,7 @@ public class CreateEntity extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Category)
                             .addComponent(CategoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 95, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -267,9 +276,9 @@ public class CreateEntity extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_NameTextActionPerformed
 
-    private void DescripionTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescripionTextActionPerformed
+    private void DescriptionTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescriptionTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DescripionTextActionPerformed
+    }//GEN-LAST:event_DescriptionTextActionPerformed
 
     private void PhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneTextActionPerformed
         // TODO add your handling code here:
@@ -289,6 +298,75 @@ public class CreateEntity extends javax.swing.JDialog {
 
     private void BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActionPerformed
         // TODO add your handling code here:
+if (NameText.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El campo 'Name' es obligatorio.", "Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            // 2. Instanciamos los DAO necesarios
+            dao.EntityDAO entityDAO = new dao.EntityDAO();
+            dao.EntityCategoryDAO categoryDAO = new dao.EntityCategoryDAO();
+
+            // 3. Mapeamos los datos de la interfaz a un objeto Entity
+            entity.Entity nuevaEntidad = new entity.Entity();
+            nuevaEntidad.setName(NameText.getText().trim());
+            nuevaEntidad.setPhone(PhoneText.getText().trim());
+            nuevaEntidad.setEmail(EmailText.getText().trim());
+            nuevaEntidad.setLink(LinkText.getText().trim());
+            nuevaEntidad.setWww(wwwText.getText().trim());
+            nuevaEntidad.setDescription(DescriptionText.getText().trim());
+            
+            // Convertimos el texto de Address a número
+            int idUsuarioAuditoria = Integer.parseInt(IduserText.getText().trim());
+            int idAddress = 0;
+            if (!AddressText.getText().trim().isEmpty()) {
+                idAddress = Integer.parseInt(AddressText.getText().trim());
+            }
+            nuevaEntidad.setIdAddress(idAddress);
+
+            // 4. Capturar las IDs correspondientes a los elementos seleccionados (Index + 1)
+            int idDimension = DimesionBox.getSelectedIndex() + 1; 
+            int idZone = ZoneBox.getSelectedIndex() + 1;
+            int idState = StateBox.getSelectedIndex() + 1;
+             
+
+            nuevaEntidad.setIdDimension(idDimension);
+            nuevaEntidad.setIdZone(idZone);
+            nuevaEntidad.setIdState(idState);
+
+            // MODIFICACIÓN CLAVE: Usamos la variable de clase asignada por el constructor
+            int idCategorySeleccionada = CategoryBox.getSelectedIndex() + 1; 
+
+            // -----------------------------------------------------------------
+            // PASO CLAVE: Insertar Entity y capturar su ID generado en MySQL
+            // -----------------------------------------------------------------
+            int nuevoIdEntity = entityDAO.crearEntityDAO(nuevaEntidad, idUsuarioAuditoria);
+
+            if (nuevoIdEntity > 0) {
+                // 5. Si la entidad se creó bien, creamos el objeto asociativo EntityCategory
+                entity.EntityCategory nuevaRelacion = new entity.EntityCategory();
+                nuevaRelacion.setIdEntity(nuevoIdEntity); // Relación directa con el ID recién creado
+                nuevaRelacion.setIdCategory(idCategorySeleccionada);
+
+                // 6. Insertamos en la tabla secundaria entity_category pasando el ID real del usuario
+                categoryDAO.crearEntityCategory(nuevaRelacion, idUsuarioAuditoria);
+
+                // 7. Mensaje de éxito final
+                javax.swing.JOptionPane.showMessageDialog(this, "¡Entidad y Categoría guardadas correctamente!", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                
+                // Cerrar la ventana del JDialog automáticamente
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "No se pudo guardar la entidad en la base de datos.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, verifica que los campos numéricos como Address sean válidos.", "Error de Formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error inesperado: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BotonActionPerformed
 
     private void AddressTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressTextActionPerformed
@@ -320,7 +398,7 @@ public class CreateEntity extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                CreateEntity dialog = new CreateEntity(new javax.swing.JFrame(), true);
+                CreateEntity dialog = new CreateEntity(new javax.swing.JFrame(), true, 1);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -338,12 +416,14 @@ public class CreateEntity extends javax.swing.JDialog {
     private javax.swing.JButton Boton;
     private javax.swing.JLabel Category;
     private javax.swing.JComboBox<String> CategoryBox;
-    private javax.swing.JTextField DescripionText;
     private javax.swing.JLabel Description;
+    private javax.swing.JTextField DescriptionText;
     private javax.swing.JLabel Dimesion;
     private javax.swing.JComboBox<String> DimesionBox;
     private javax.swing.JLabel Email;
     private javax.swing.JTextField EmailText;
+    private javax.swing.JLabel Iduser;
+    private javax.swing.JTextField IduserText;
     private javax.swing.JLabel Link;
     private javax.swing.JTextField LinkText;
     private javax.swing.JLabel Name;

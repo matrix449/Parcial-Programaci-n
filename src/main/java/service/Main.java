@@ -4,7 +4,7 @@ import Interface.Collaborator;
 import javax.swing.JFrame;
 
 /**
- * Clase principal para probar el flujo desde el panel Collaborator.
+ * Clase principal para probar el flujo desde el panel Collaborator. 
  * @author chaco
  */
 public class Main {
@@ -30,8 +30,8 @@ public class Main {
                 JFrame framePrincipal = new JFrame("Panel de Control - Collaborator");
                 framePrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 
-                // 2. Instanciamos tu panel Collaborator
-                Collaborator panelCollaborator = new Collaborator();
+                // 2. ¡MODIFICADO! Le pasamos un ID de usuario de prueba (ej: 1)
+                Collaborator panelCollaborator = new Collaborator(1); 
                 
                 // 3. Agregamos el panel al contenedor de la ventana
                 framePrincipal.getContentPane().add(panelCollaborator);
