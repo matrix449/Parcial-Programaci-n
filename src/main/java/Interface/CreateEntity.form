@@ -54,7 +54,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ZoneBox" pref="124" max="32767" attributes="0"/>
+                              <Component id="ZoneBox" pref="107" max="32767" attributes="0"/>
                               <Component id="CategoryBox" alignment="0" max="32767" attributes="0"/>
                               <Component id="StateBox" alignment="0" max="32767" attributes="0"/>
                               <Component id="AddressText" alignment="0" max="32767" attributes="0"/>
@@ -72,13 +72,16 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="7" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="www" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="Description" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="Iduser" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="Iduser" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -125,6 +128,28 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Dimesion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DimesionBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Zone" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ZoneBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Address" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AddressText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Category" min="-2" max="-2" attributes="0"/>
+                              <Component id="CategoryBox" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Email" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="EmailText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -151,32 +176,9 @@
                               <Component id="IduserText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="Boton" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Dimesion" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DimesionBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Zone" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ZoneBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Address" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="AddressText" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Category" min="-2" max="-2" attributes="0"/>
-                              <Component id="CategoryBox" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="Boton" pref="43" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
